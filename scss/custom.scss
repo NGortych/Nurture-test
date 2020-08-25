@@ -2,6 +2,7 @@ $background-color: #F2F2F2;
 $white-color: #FFFFFF;
 $dark-color: #000000;
 $dark-color-2: #111111;
+$gray-color: #C4C4C4;
 $font-family: "Gothic A1";
 
 @mixin tablet {
@@ -61,9 +62,10 @@ html, body {
         display: flex;
         max-width: 1110px;
         margin: auto;
+        position: relative;
 
         @include tablet() {
-          flex-direction: column-reverse;
+          flex-direction: column;
         }
 
         .text-container {
@@ -101,6 +103,7 @@ html, body {
 
       .slider-box {
         width: 50%;
+        margin-bottom: 0;
 
         @include tablet() {
           width: 100%;
@@ -115,6 +118,65 @@ html, body {
           background-repeat: no-repeat;
           background-position: center;
           min-height: 300px;
+        }
+
+        .slides-number {
+          position: absolute;
+        }
+
+        .slider-element {
+          height: 100%;
+          margin-bottom: 0;
+
+          .slick-list {
+            height: 100%;
+
+            .slick-track {
+              display: flex;
+              height: 100%;
+            }
+
+            .slick-track .slick-slide {
+              display: flex;
+              height: auto;
+            }
+          }
+
+          .slick-dots {
+            bottom: 15px;
+
+            li {
+              width: 5px;
+              margin: 0 4px;
+
+              button {
+                width: 5px;
+
+                &::before {
+                  font-size: 0.8rem;
+                  opacity: 0.3;
+                  color: $dark-color;
+                }
+              }
+
+              &.slick-active button::before {
+                color: $white-color;
+                opacity: 1;
+              }
+            }
+          }
+        }
+
+        .slides-number {
+          font-weight: normal;
+          font-size: 1.4rem;
+          line-height: 1.43;
+          letter-spacing: 3px;
+          color: $dark-color;
+          padding: 10px 6px;
+          bottom: 0;
+          right: 0;
+          background: $gray-color;
         }
       }
     }
