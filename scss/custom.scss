@@ -1,0 +1,122 @@
+$background-color: #F2F2F2;
+$white-color: #FFFFFF;
+$dark-color: #000000;
+$dark-color-2: #111111;
+$font-family: "Gothic A1";
+
+@mixin tablet {
+  @media screen and(max-width: 767px) {
+    @content;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 10px;
+  font-family: "Gothic A1";
+  vertical-align: baseline;
+  background: $background-color;
+
+  h3 {
+    font-weight: bold;
+    font-size: 2.8rem;
+    line-height: 1.14;
+    color: $dark-color;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  h4 {
+    font-weight: 500;
+    font-size: 2.2rem;
+    line-height: 1.27;
+    color: $dark-color-2;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-weight: normal;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: $dark-color;
+    margin-bottom: 60px;
+    margin-top: 0;
+  }
+
+  .container {
+    max-width: 1440px;
+    margin: auto;
+    min-height: 470px;
+    overflow: hidden;
+    padding: 15px;
+
+    .module-wrapper {
+      background: $white-color;
+      padding: 35px 15px;
+
+      .module-box {
+        display: flex;
+        max-width: 1110px;
+        margin: auto;
+
+        @include tablet() {
+          flex-direction: column-reverse;
+        }
+
+        .text-container {
+          width: 50%;
+
+          @include tablet() {
+            width: 100%;
+          }
+
+          .text-box {
+            max-width: 445px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-right: 15px;
+
+            @include tablet() {
+              max-width: 100%;
+              padding-right: 0;
+            }
+
+            .text-center {
+              max-width: 190px;
+              margin: auto;
+              text-align: center;
+
+              p {
+                font-size: 1.4rem;
+                line-height: 1.43;
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .slider-box {
+        width: 50%;
+
+        @include tablet() {
+          width: 100%;
+        }
+
+        // first variation
+        .slider-image {
+          background: url("../media/img/cargo-floor.jpg");
+          height: 100%;
+          width: 100%;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          min-height: 300px;
+        }
+      }
+    }
+  }
+}
